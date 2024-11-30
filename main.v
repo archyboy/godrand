@@ -7,20 +7,22 @@ import math
 // import crypto.rand as rand_machine
 
 fn main() {
-	loops := 10
+	loops := 1_000_000_000
 	mut zeros_win := 0
 	mut ones_win := 0
 	mut numbers := [][]u64{}
 
-	mut i := 1
-	for i = 1; i <= loops; i++ {
-		numbers = get_rand_zeros_ones_array(100, 'prng'.to_upper())!
+	mut i := 0
+	for i < loops {
+		numbers = get_rand_zeros_ones_array(1, 'prng'.to_upper())!
 		if numbers[0].len > numbers[1].len {
 			zeros_win++
 		}
 		if numbers[0].len < numbers[1].len {
 			ones_win++
 		}
+		i++
+		// println(numbers)
 	}
 	println('Ran the random generator ${i} times')
 
@@ -33,7 +35,7 @@ fn main() {
 		accuracy = calculate_accuracy(perfect, zeros_win)
 
 		println('\nWinner is ${zeros_win} ZEROS against ${ones_win} ones with a difference by ${difference}')
-		println('The perfect result would be ${perfect} equal zeros and ones')
+		println('The perfect result would be ${perfect} zeros / ${loops} numbers')
 		println('Accuracy: ${accuracy} percent(%)')
 	} else if zeros_win < ones_win { // if LESS zeros than ones
 		perfect := (ones_win + zeros_win) / 2
@@ -42,7 +44,7 @@ fn main() {
 		accuracy = calculate_accuracy(perfect, ones_win)
 
 		println('\nWinner is ${ones_win} ONES against ${zeros_win} zeros with a difference by ${difference}')
-		println('The perfect result would be ${perfect} equal ones and zeros')
+		println('The perfect result would be ${perfect} ones / ${loops} numbers')
 		println('Accuracy: ${accuracy} percent(%)')
 	} else {
 		println('Congratulation!! You won the random accuracy lottery. Result was 100% PERFECT')
@@ -67,6 +69,7 @@ pub fn get_rand_zeros_ones_array(count int, mode string) ![][]u64 {
 			println('Work in progress to get real random zeros and ones not PRNGs for comparison')
 		}
 
+		// println(r)
 		match r {
 			0 { zeros << r }
 			1 { ones << r }
