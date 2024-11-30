@@ -60,7 +60,7 @@ pub fn get_rand_zeros_ones_array(count int, mode string) ![][]u64 {
 	mut numbers := [][]u64{}
 	mut r := u64(0)
 
-	for i in 0 .. count {
+	for _ in 0 .. count {
 		if mode == 'PRNG' {
 			r = rand.u64_in_range(0, 2)!
 		} else {
