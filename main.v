@@ -4,7 +4,7 @@ module main
 
 import rand
 import math
-import crypto.rand as rand_machine
+// import crypto.rand as rand_machine
 
 fn main() {
 	loops := 1_000_00
