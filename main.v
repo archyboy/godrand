@@ -7,13 +7,13 @@ import math
 // import crypto.rand as rand_machine
 
 fn main() {
-	loops := 1_000_00
+	loops := 10
 	mut zeros_win := 0
 	mut ones_win := 0
 	mut numbers := [][]u64{}
 
-	mut i := 0
-	for i = 0; i < loops; i++ {
+	mut i := 1
+	for i = 1; i <= loops; i++ {
 		numbers = get_rand_zeros_ones_array(100, 'prng'.to_upper())!
 		if numbers[0].len > numbers[1].len {
 			zeros_win++
@@ -45,7 +45,7 @@ fn main() {
 		println('The perfect result would be ${perfect} equal ones and zeros')
 		println('Accuracy: ${accuracy} percent(%)')
 	} else {
-		println('Congratulation!! You won the random accuracy lottery. Result was ${accuracy}% PERFECT')
+		println('Congratulation!! You won the random accuracy lottery. Result was 100% PERFECT')
 	}
 }
 
