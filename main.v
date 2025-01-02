@@ -52,7 +52,7 @@ fn main() {
 }
 
 fn calculate_accuracy(a f64, b f64) f64 {
-	accuracy := (1.0 - (math.abs(a - b) / a)) * 100.0
+	accuracy := (1.0 - (math.abs(a - b) / a)) * 100.0 // Accuracy in percent %
 	return accuracy
 }
 
