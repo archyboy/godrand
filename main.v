@@ -82,6 +82,8 @@ pub fn get_rand_zeros_ones_array(count int, mode string) ![][]u64 {
 	return numbers
 }
 
+// Generating random bits returning an u8 array	
+// Not yet in use by the app			
 fn generate_random_bits(length int) []int {
 	mut bits := []int{len: length}
 	for i in 0 .. length {
